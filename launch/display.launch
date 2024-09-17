@@ -1,0 +1,36 @@
+<launch>
+  <!-- What is the name of the file to use? This can be passed into the launch file. -->
+  <arg name="use_xacro" default="false" />
+  
+  <!-- The URDF/XACRO filename -->
+  <arg if="$(arg use_xacro)" name="filename" default="robot.xacro" />
+  <arg unless="$(arg use_xacro)" name="filename" default="robot.urdf" />
+  
+  <!-- The full path of the URDF/XACRO file -->
+  <arg name="file" default="$(find navvis_description)/urdf/$(arg filename)" />
+
+  <!-- If using XACRO, process the XACRO file to generate URDF -->
+  <param if="$(arg use_xacro)" name="robot_description" command="$(find xacro)/xacro $(arg file)" />
+
+  <!-- If not using XACRO, directly use the URDF file -->
+  <param unless="$(arg use_xacro)" name="robot_description" textfile="$(arg file)" />
+  
+  <!-- Run the robot_state_publisher -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" />
+
+  <!-- Run RVIZ with a specific configuration file -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find navvis_description)/config/config.rviz" required="true" />
+  
+  <arg name="use_gui" default="false" />
+
+  <!-- Launch joint_state_publisher_gui if use_gui is true -->
+  <node if="$(arg use_gui)" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" name="joint_state_publisher_gui" />
+
+  <!-- Launch joint_state_publisher if use_gui is false -->
+  <node unless="$(arg use_gui)" pkg="joint_state_publisher" type="joint_state_publisher" name="joint_state_publisher" />
+
+  <!-- Run robot_state_publisher with anonymous name to avoid conflicts -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="$(anon robot_state_publisher)" />
+  
+</launch>
+
