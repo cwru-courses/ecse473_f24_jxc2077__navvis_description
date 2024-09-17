@@ -1,7 +1,4 @@
-Here is the content in markdown format:
-
-
-# NavVis Description Package
+# Navvis Description Package
 
 ## Overview
 
