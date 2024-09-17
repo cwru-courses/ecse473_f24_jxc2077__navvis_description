@@ -1,6 +1,6 @@
 Here is the content in markdown format:
 
-```markdown
+
 # NavVis Description Package
 
 ## Overview
@@ -9,7 +9,7 @@ This package is used to describe the robot model in URDF and visualize it in RVi
 
 ## Package Structure
 
-```
+
 navvis_description/
 │
 ├── CMakeLists.txt
@@ -24,7 +24,7 @@ navvis_description/
 └── urdf/
     ├── robot.urdf
     └── robot.xacro
-```
+
 
 ### 1. Launch Files
 
@@ -56,6 +56,6 @@ Make sure to modify the arguments (`use_xacro`, `file`, `use_joint_state_publish
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
+s
 
 You can copy and paste this into a `README.md` file. Let me know if any further adjustments are needed!
