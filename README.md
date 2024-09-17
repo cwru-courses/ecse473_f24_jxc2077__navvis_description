@@ -56,6 +56,4 @@ Make sure to modify the arguments (`use_xacro`, `file`, `use_joint_state_publish
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-s
 
-You can copy and paste this into a `README.md` file. Let me know if any further adjustments are needed!
