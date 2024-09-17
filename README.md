@@ -9,7 +9,7 @@ This package is used to describe the robot model in URDF and visualize it in RVi
 
 ## Package Structure
 
-
+```arduino
 navvis_description/
 │
 ├── CMakeLists.txt
@@ -24,7 +24,7 @@ navvis_description/
 └── urdf/
     ├── robot.urdf
     └── robot.xacro
-
+```
 
 ### 1. Launch Files
 
